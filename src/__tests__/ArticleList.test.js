@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import ArticleList from "../components/ArticleList";
 
-const posts = [
+const articles = [
   {
     id: 1,
     title: "Components 101",
@@ -24,11 +24,11 @@ const posts = [
 ];
 
 test("renders a <main> element", () => {
-  const { container } = render(<ArticleList posts={posts} />);
+  const { container } = render(<ArticleList articles={articles} />);
   expect(container.querySelector("main")).toBeInTheDocument();
 });
 
-test("renders a Article component for each post passed as a prop", () => {
-  const { container } = render(<ArticleList posts={posts} />);
+test("renders an Article component for each article passed as a prop", () => {
+  const { container } = render(<ArticleList articles={articles} />);
   expect(container.querySelector("main").children).toHaveLength(3);
 });
